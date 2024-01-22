@@ -9,15 +9,15 @@
 # Idade: 65
 # -----------------------------
 
-# Nome = input ("Digite seu nome:\n")
-# Cpf = input ("Digite seu CPF (Apenas numeros):\n")
-# Cpf_format = f"{Cpf[:3]}.{Cpf[3:6]}.{Cpf[6:9]}/{Cpf[9:]}"
-# Idade = input ("Digite sua idade (Apenas numeros):\n")
+Nome = input ("Digite seu nome:\n")
+Cpf = input ("Digite seu CPF (Apenas numeros):\n")
+Cpf_format = f"{Cpf[:3]}.{Cpf[3:6]}.{Cpf[6:9]}/{Cpf[9:]}"
+Idade = input ("Digite sua idade (Apenas numeros):\n")
 
-# print (f"Confirmação de cadastro:\n",
-#     f"Nome: {Nome}\n",
-#     f"CPF: {Cpf_format}\n",
-#     f"Idade: {Idade}")
+print (f"Confirmação de cadastro:\n",
+     f"Nome: {Nome}\n",
+     f"CPF: {Cpf_format}\n",
+     f"Idade: {Idade}")
 # 2) Escreva um script em Python que receba dois números e que seja realizado as seguintes
 # operações:
 # • soma dos dois números
