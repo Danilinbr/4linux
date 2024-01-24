@@ -1,5 +1,5 @@
 # # Exercícios - Aula 03
-
+import os as os
 # ## Exercício 1:
 # Escreva uma função que receba um nome e que tenha como saída uma saudação. O argumento da função deverá ser o nome e a saída deverá ser como a seguir:
 
@@ -7,150 +7,156 @@
 # chamada da função: saudacao('Lalo')
 # saída: 'Olá Lalo! Tudo bem com você?'
 # ```
-#_____________________________________________________________________________
-#!/usr/bin/python3
+#---------------------------------------------------------------------
 
-operacoes = {
-    '1': lambda x,y: x+y,
-    '2': lambda x,y: x-y,
-    '3': lambda x,y: x/y if y != 0 else 'Não dividirás por zero.',
-    '4': lambda x,y: x*y,
-    '5': lambda x,y: exit()
-}
+# def saudacao(nome):
+#     return f"Olá {nome}, tudo bem com você?"
 
+# def main():
+#     print(saudacao('Lalo'))
 
-def calculadora():
-    while True:
-        n1=float(input('N1: '))
-        n2=float(input('N2: '))
-
-        op = input(f'Operações:\n' \
-             f'1 - Soma\n' \
-             f'2 - Subtração\n' \
-             f'3 - Divisão\n' \
-             f'4 - Multiplicação\n'
-             f'5 - Sair\n' \
-             f'Digite a opção desejada: ')
-
-
-        if op in operacoes:
-            print(operacoes[op](n1,n2))
-        else:
-            print('Opção inválida')
-
-
-if __name__ == '__main__':
-    calculadora()
+# if __name__ == '__main__':
+#     main()
+#---------------------------------------------------------------------
 # ## Exercício 2:
 
 # Escreva uma calculadora matemática utilizando funções anônimas
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
 
+def calc(num1,num2,oper):
+    os.system('clear')
+    match oper:
+        case 1:
+            return num1 + num2
+        case 2:
+            if (num1 > num2):
+                return num1-num2
+            else:
+                return num2-num1
+        case 3:
+            return num1*num2
+        case 4:
+            return num1/num2
+        case 5:
+            exit()
 
-# ## Exercício 3:
-
-# Reescreva o exercício da quitanda do capítulo 2 separando as operações em funções.
-
-#!/usr/bin/python3
-
-def saudacao(nome):
-    return f'Olá {nome}, tudo bem com você?'
-
-print(saudacao('Lalo'))
-
-
-#---------------------------------------------------------------------
-#!/usr/bin/python3
-
-cesta = []
-
-frutas = {
-  '1': 'Banana',
-  '2': 'Melancia',
-  '3': 'Morango'
-}
-
-precos = {
-  'Banana' : 3.50,
-  'Melancia' : 7.50,
-  'Morango': 5.00
-
-}
-
-def ver_cesta(lista_compras):
-    if not esta_vazia(lista_compras):
-        print('Cesta de Compras:')
-        for item in cesta:
-            print(item)
+def panel():
+    oper = 0
+    num1 = 0
+    num2 = 0
+    print("""
+    Escolha uma operação:
+    1 - Soma
+    2 - Subtração
+    3 - Multiplicação
+    4 - Divisão
+    5 - Sair
+          
+    """)
+    oper = input("R: ")
+    if oper.isdigit() != True:
+        os.system('clear')
+        print("Escolha uma opção valida!")
+        input("")
+        return
     else:
-        print('Cesta de compras está vazia.')
-    print('------------------------')
-
-def adicionar_frutas(cesta_frutas):
-    fruta = escolher_fruta()
-    if fruta in frutas:
-        cesta_frutas.append(frutas[fruta])
-        print(f'{frutas[fruta]} foi adicionado com sucesso!')
-        print('------------------------')
-
-    else:
-        print('Opção inválida')
-        print('------------------------')
-
-
-def escolher_fruta():
-    return input(f'Escolha a fruta desejada:\n' \
-                 f'1 - Banana\n' \
-                 f'2 - Melancia\n' \
-                 f'3 - Morango\n' \
-                 f'Digite a opção desejada: ')
-
-def checkout(cesta_frutas):
-    if not esta_vazia(cesta_frutas):
-        total = totalizar_precos(cesta_frutas)
-
-        print(f'Total de compras: {total}')
-        print(f'Cesta de compras: {cesta_frutas}')
-    else:
-        print('Cesta de compras vazia.')
-    print('------------------------')
-
-
-def esta_vazia(cesta_frutas):
-    return len(cesta_frutas) == 0
-
-def totalizar_precos(cesta_frutas):
-    total = 0
-    for item in cesta_frutas:
-        total += precos[item]
-    return total
-
-
-
-def sair(*args):
-    exit()
-
-
+        oper = int(oper)
+        if oper == 5:
+            exit()
+        while True:
+            os.system('clear')
+            num1 = float(input("Escolha o primeiro valor:\nR: "))
+            if isfloat(num1) != True:
+                os.system('clear')
+                print("Escolha uma opção valida!")
+                input("")
+            else:
+                break
+        while True:
+            os.system('clear')
+            num2 = float(input("Escolha o segundo valor:\nR: "))
+            if isfloat(num2) != True:
+                os.system('clear')
+                print("Escolha uma opção valida!")
+                input("")
+            else:
+                break
+        value = calc(num1,num2,oper)
+        print (f"O resultado da sua operação é:\n{value}")
+        input("")
+    
 def main():
     while True:
-        print(f'Quitanda\n' \
-              f'1: Ver cesta\n' \
-              f'2: Adicionar Frutas\n' \
-              f'3: Checkout\n' \
-              f'4: Sair\n')
-
-        op = input('Digite a opção desejada: ')
-
-        if op == '1':
-            ver_cesta(cesta)
-        elif op == '2':
-            adicionar_frutas(cesta)
-        elif op == '3':
-            checkout(cesta)
-        elif op == '4':
-            sair()
-        else:
-            print('Opção Inválida')
-
+        os.system('clear')
+        panel()
 
 if __name__ == '__main__':
     main()
+
+#---------------------------------------------------------------------
+# ## Exercício 3:
+
+# Reescreva o exercício da quitanda do capítulo 2 separando as operações em funções.
+#---------------------------------------------------------------------
+cesta_frutas = []
+preco_cesta = []
+preco_total = 0
+while True:
+    index = len(cesta_frutas)
+    os.system('clear')
+    quitanda_UI = int(input("QUITANDA\n1: Ver cesta\n2: Adicionar frutas\n3: Sair\nR: "))
+    if quitanda_UI == 1:
+        os.system('clear')
+        if index < 1:
+            print("Cesta Vazia")
+            input("")
+        else:
+            for itens in cesta_frutas:
+                print(itens)
+            input("")
+
+    elif quitanda_UI == 2:
+        os.system('clear')
+        adicionar_frutas = int(input("""Escolha a fruta desejada:
+1 - Banana - R$1
+2 - Melancia - R$5
+3 - Morango - R$2,5
+Digite a opção desejada:\nR: """))
+        if adicionar_frutas == 1:
+            cesta_frutas.append("Banana")
+            preco_cesta.append(1)
+            os.system('clear')
+            print("\nOpção Adicionada ao carrinho!\n")
+            input("")
+        elif adicionar_frutas == 2:
+            cesta_frutas.append("Melancia")
+            preco_cesta.append(5)
+            os.system('clear')
+            print("\nOpção Adicionada ao carrinho!\n")
+            input("")
+        elif adicionar_frutas == 3:
+            cesta_frutas.append("Morango")
+            preco_cesta.append(2.5)
+            os.system('clear')
+            print("\nOpção Adicionada ao carrinho!\n")
+            input("")
+        else:
+            os.system('clear')
+            print("\nopção invalida!\n")
+            input("")
+        
+    elif quitanda_UI == 3:
+        for preco in preco_cesta:
+            preco_total = preco_total+preco
+        os.system('clear')
+        print(f"\n Compra ficou em R${preco_total}! Obrigado.\n")
+        input("")
+        break
+    else:
+        print("\nEscolha uma opção valida!\n")
+        quitanda_UI = 0
