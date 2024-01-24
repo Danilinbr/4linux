@@ -103,79 +103,136 @@ import os as os
 
 # Reescreva o exercício da quitanda do capítulo 2 separando as operações em funções.
 #---------------------------------------------------------------------
-cesta_frutas = []
-preco_cesta = []
-preco_total = 0
+# cesta_frutas = []
+# preco_cesta = []
+# preco_total = 0
 
-def painel():
-    while True:
-        os.system('clear')
-        quitanda = input("QUITANDA\n1: Ver cesta\n2: Adicionar frutas\n3: Sair\nR: ")
-        if quitanda.isdigit() != True:
-            os.system('clear')
-            print("\nEscolha uma opção valida!\n")
-            input("")
-        else:
-            return int(quitanda)
+# def painel():
+#     while True:
+#         os.system('clear')
+#         quitanda = input("QUITANDA\n1: Ver cesta\n2: Adicionar frutas\n3: Sair\nR: ")
+#         if quitanda.isdigit() != True:
+#             os.system('clear')
+#             print("\nEscolha uma opção valida!\n")
+#             input("")
+#         else:
+#             return int(quitanda)
 
-while True:
-    index = len(cesta_frutas)
-    quitanda_UI = painel()
-    if quitanda_UI == 1:
-        os.system('clear')
-        if index < 1:
-            print("Cesta Vazia")
-            input("")
-        else:
-            for itens in cesta_frutas:
-                print(itens)
-            input("")
+# while True:
+#     index = len(cesta_frutas)
+#     quitanda_UI = painel()
+#     if quitanda_UI == 1:
+#         os.system('clear')
+#         if index < 1:
+#             print("Cesta Vazia")
+#             input("")
+#         else:
+#             for itens in cesta_frutas:
+#                 print(itens)
+#             input("")
 
-    elif quitanda_UI == 2:
-        os.system('clear')
-        adicionar_frutas = int(input("""Escolha a fruta desejada:
-1 - Banana - R$1
-2 - Melancia - R$5
-3 - Morango - R$2,5
-Digite a opção desejada:\nR: """))
-        if adicionar_frutas == 1:
-            cesta_frutas.append("Banana")
-            preco_cesta.append(1)
-            os.system('clear')
-            print("\nOpção Adicionada ao carrinho!\n")
-            input("")
-        elif adicionar_frutas == 2:
-            cesta_frutas.append("Melancia")
-            preco_cesta.append(5)
-            os.system('clear')
-            print("\nOpção Adicionada ao carrinho!\n")
-            input("")
-        elif adicionar_frutas == 3:
-            cesta_frutas.append("Morango")
-            preco_cesta.append(2.5)
-            os.system('clear')
-            print("\nOpção Adicionada ao carrinho!\n")
-            input("")
-        else:
-            os.system('clear')
-            print("\nopção invalida!\n")
-            input("")
+#     elif quitanda_UI == 2:
+#         os.system('clear')
+#         adicionar_frutas = int(input("""Escolha a fruta desejada:
+# 1 - Banana - R$1
+# 2 - Melancia - R$5
+# 3 - Morango - R$2,5
+# Digite a opção desejada:\nR: """))
+#         if adicionar_frutas == 1:
+#             cesta_frutas.append("Banana")
+#             preco_cesta.append(1)
+#             os.system('clear')
+#             print("\nOpção Adicionada ao carrinho!\n")
+#             input("")
+#         elif adicionar_frutas == 2:
+#             cesta_frutas.append("Melancia")
+#             preco_cesta.append(5)
+#             os.system('clear')
+#             print("\nOpção Adicionada ao carrinho!\n")
+#             input("")
+#         elif adicionar_frutas == 3:
+#             cesta_frutas.append("Morango")
+#             preco_cesta.append(2.5)
+#             os.system('clear')
+#             print("\nOpção Adicionada ao carrinho!\n")
+#             input("")
+#         else:
+#             os.system('clear')
+#             print("\nopção invalida!\n")
+#             input("")
         
-    elif quitanda_UI == 3:
-        for preco in preco_cesta:
-            preco_total = preco_total+preco
-        os.system('clear')
-        print(f"\n Compra ficou em R${preco_total}! Obrigado.\n")
-        input("")
-        break
-    else:
-        None
+#     elif quitanda_UI == 3:
+#         for preco in preco_cesta:
+#             preco_total = preco_total+preco
+#         os.system('clear')
+#         print(f"\n Compra ficou em R${preco_total}! Obrigado.\n")
+#         input("")
+#         break
+#     else:
+#         None
 # ====================================================
 # Exercicio 4:
 # Escreva um programa que possua uma função que conte o
 # numero de números pares passados à ela, pelo usuário.
 # ====================================================
+def ui_exe4(num_list):
+    while True:
+        os.system('clear')
+        ui_inpt = input("""
+Escolha dentre as opções:
+1 - Adicionar Numero à lista
+2 - Visualizar numeros pares na lista
+3 - Sair 
 
+""")
+        if ui_inpt.isdigit() != True:
+            os.system('clear')
+            print("\nEscolha uma opção valida! Somente numero.\n")
+            input("")
+        else:
+            ui_inpt = int(ui_inpt)
+            choose(ui_inpt,num_list)
+        
+        
+def choose(inpt,num_list):
+    par_list = []
+    os.system('clear')
+    match inpt:
+        case 1:
+            while True:
+                opt = input("Qual numero deseja adicionar a lista\nR: ")
+                if opt.isdigit() != True:
+                    os.system('clear')
+                    print("\nEscolha uma opção valida! Somente numero.\n")
+                    input("")
+                else:
+                    opt = int(opt)
+                    num_list.append(opt)
+                    return num_list
+        case 2:
+            if len(num_list) == 0:
+                print("lista vazia")
+                input("")
+                return num_list
+            else:
+                cont = 0
+                for itens in num_list:
+                    if itens % 2 == 0:
+                        cont += 1
+                        par_list.append(itens)
+                os.system('clear')
+                print(f"Você possui um total de {cont} numeros pares em sua lista.\n eles são: {par_list}")
+                input("")
+                return num_list
+        case 3:
+            exit()
+
+def main():
+    num_list = []
+    ui_exe4(num_list)
+
+if __name__ == '__main__':
+     main()
 # ====================================================
 # Exercicio 5:
 # Assumindo que uma lata de tinta pinta 3m², escreva um programa
