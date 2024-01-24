@@ -21,82 +21,82 @@ import os as os
 # ## Exercício 2:
 
 # Escreva uma calculadora matemática utilizando funções anônimas
-def isfloat(num):
-    try:
-        float(num)
-        return True
-    except ValueError:
-        return False
+# def isfloat(num):
+#     try:
+#         float(num)
+#         return True
+#     except ValueError:
+#         return False
 
-def calc(num1,num2,oper):
-    os.system('clear')
-    match oper:
-        case 1:
-            return num1 + num2
-        case 2:
-            if (num1 > num2):
-                return num1-num2
-            else:
-                return num2-num1
-        case 3:
-            return num1*num2
-        case 4:
-            return num1/num2
-        case 5:
-            exit()
+# def calc(num1,num2,oper):
+#     os.system('clear')
+#     match oper:
+#         case 1:
+#             return num1 + num2
+#         case 2:
+#             if (num1 > num2):
+#                 return num1-num2
+#             else:
+#                 return num2-num1
+#         case 3:
+#             return num1*num2
+#         case 4:
+#             return num1/num2
+#         case 5:
+#             exit()
 
-def panel():
-    oper = 0
-    num1 = 0
-    num2 = 0
-    print("""
-    Escolha uma operação:
-    1 - Soma
-    2 - Subtração
-    3 - Multiplicação
-    4 - Divisão
-    5 - Sair
+# def panel():
+#     oper = 0
+#     num1 = 0
+#     num2 = 0
+#     print("""
+#     Escolha uma operação:
+#     1 - Soma
+#     2 - Subtração
+#     3 - Multiplicação
+#     4 - Divisão
+#     5 - Sair
           
-    """)
-    oper = input("R: ")
-    if oper.isdigit() != True:
-        os.system('clear')
-        print("Escolha uma opção valida!")
-        input("")
-        return
-    else:
-        oper = int(oper)
-        if oper == 5:
-            exit()
-        while True:
-            os.system('clear')
-            num1 = float(input("Escolha o primeiro valor:\nR: "))
-            if isfloat(num1) != True:
-                os.system('clear')
-                print("Escolha uma opção valida!")
-                input("")
-            else:
-                break
-        while True:
-            os.system('clear')
-            num2 = float(input("Escolha o segundo valor:\nR: "))
-            if isfloat(num2) != True:
-                os.system('clear')
-                print("Escolha uma opção valida!")
-                input("")
-            else:
-                break
-        value = calc(num1,num2,oper)
-        print (f"O resultado da sua operação é:\n{value}")
-        input("")
+#     """)
+#     oper = input("R: ")
+#     if oper.isdigit() != True:
+#         os.system('clear')
+#         print("Escolha uma opção valida!")
+#         input("")
+#         return
+#     else:
+#         oper = int(oper)
+#         if oper == 5:
+#             exit()
+#         while True:
+#             os.system('clear')
+#             num1 = float(input("Escolha o primeiro valor:\nR: "))
+#             if isfloat(num1) != True:
+#                 os.system('clear')
+#                 print("Escolha uma opção valida!")
+#                 input("")
+#             else:
+#                 break
+#         while True:
+#             os.system('clear')
+#             num2 = float(input("Escolha o segundo valor:\nR: "))
+#             if isfloat(num2) != True:
+#                 os.system('clear')
+#                 print("Escolha uma opção valida!")
+#                 input("")
+#             else:
+#                 break
+#         value = calc(num1,num2,oper)
+#         print (f"O resultado da sua operação é:\n{value}")
+#         input("")
     
-def main():
-    while True:
-        os.system('clear')
-        panel()
+# def main():
+#     while True:
+#         os.system('clear')
+#         panel()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 #---------------------------------------------------------------------
 # ## Exercício 3:
@@ -106,10 +106,21 @@ if __name__ == '__main__':
 cesta_frutas = []
 preco_cesta = []
 preco_total = 0
+
+def painel():
+    while True:
+        os.system('clear')
+        quitanda = input("QUITANDA\n1: Ver cesta\n2: Adicionar frutas\n3: Sair\nR: ")
+        if quitanda.isdigit() != True:
+            os.system('clear')
+            print("\nEscolha uma opção valida!\n")
+            input("")
+        else:
+            return int(quitanda)
+
 while True:
     index = len(cesta_frutas)
-    os.system('clear')
-    quitanda_UI = int(input("QUITANDA\n1: Ver cesta\n2: Adicionar frutas\n3: Sair\nR: "))
+    quitanda_UI = painel()
     if quitanda_UI == 1:
         os.system('clear')
         if index < 1:
@@ -158,5 +169,20 @@ Digite a opção desejada:\nR: """))
         input("")
         break
     else:
-        print("\nEscolha uma opção valida!\n")
-        quitanda_UI = 0
+        None
+# ====================================================
+# Exercicio 4:
+# Escreva um programa que possua uma função que conte o
+# numero de números pares passados à ela, pelo usuário.
+# ====================================================
+
+# ====================================================
+# Exercicio 5:
+# Assumindo que uma lata de tinta pinta 3m², escreva um programa
+# que possua uma função que receba as dimenções de uma parede,
+# passadas pelo usuario, calcule sua área, e mostre uma mensagem
+# dizendo quantas latas de tinta seriam necessárias para pintar
+# essa parede.
+# ====================================================
+        
+# ====================================================

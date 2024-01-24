@@ -56,3 +56,49 @@ print(lista)
 # Métodos em Strings
 frase = "Testando uma nova frase"
 print(frase.replace("a", "---"))
+
+# Dicionários - Hash Table
+
+# chave -> valor
+
+# dicionario = {"Altura": 1.80}
+
+# dicionario["Nome"] = "Tiago"
+# dicionario["Cor"] = "Verde"
+
+#              |------ITEM----|  |----ITEM-----|
+# DICIONARIO = {'Nome': 'Tiago', 'Cor': 'Verde'}
+#               CHAVE  :  VALOR,  CHAVE: VALOR
+
+# for x, y in dicionario.items():
+#     print(f"Chave: {x}, Valor: {y}")
+
+
+# SETS
+    
+# variavel = {10, 15, 30, "teste", 15}
+# variavel.add(20)
+
+# print(variavel)
+
+
+# FUNÇÕES
+
+# print("imprimir")
+# soma(4, 5)
+
+# def soma(x, y):
+#     resultado = x + y
+#     return resultado
+
+
+# print(soma(4, 7))
+# print(soma(10, 23))
+# print(soma(70, 1))
+
+
+# Funções LAMBDA / Funções Anonimas
+
+# diferenca = lambda x, y: x - y
+
+# print(diferenca(7, 5))
