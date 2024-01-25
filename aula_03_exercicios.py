@@ -56,7 +56,7 @@ import os as os
 #     3 - Multiplicação
 #     4 - Divisão
 #     5 - Sair
-          
+
 #     """)
 #     oper = input("R: ")
 #     if oper.isdigit() != True:
@@ -89,7 +89,7 @@ import os as os
 #         value = calc(num1,num2,oper)
 #         print (f"O resultado da sua operação é:\n{value}")
 #         input("")
-    
+
 # def main():
 #     while True:
 #         os.system('clear')
@@ -160,7 +160,7 @@ import os as os
 #             os.system('clear')
 #             print("\nopção invalida!\n")
 #             input("")
-        
+
 #     elif quitanda_UI == 3:
 #         for preco in preco_cesta:
 #             preco_total = preco_total+preco
@@ -175,64 +175,64 @@ import os as os
 # Escreva um programa que possua uma função que conte o
 # numero de números pares passados à ela, pelo usuário.
 # ====================================================
-def ui_exe4(num_list):
-    while True:
-        os.system('clear')
-        ui_inpt = input("""
-Escolha dentre as opções:
-1 - Adicionar Numero à lista
-2 - Visualizar numeros pares na lista
-3 - Sair 
+# def ui_exe4(num_list):
+#     while True:
+#         os.system('clear')
+#         ui_inpt = input("""
+# Escolha dentre as opções:
+# 1 - Adicionar Numero à lista
+# 2 - Visualizar numeros pares na lista
+# 3 - Sair
 
-""")
-        if ui_inpt.isdigit() != True:
-            os.system('clear')
-            print("\nEscolha uma opção valida! Somente numero.\n")
-            input("")
-        else:
-            ui_inpt = int(ui_inpt)
-            choose(ui_inpt,num_list)
-        
-        
-def choose(inpt,num_list):
-    par_list = []
-    os.system('clear')
-    match inpt:
-        case 1:
-            while True:
-                opt = input("Qual numero deseja adicionar a lista\nR: ")
-                if opt.isdigit() != True:
-                    os.system('clear')
-                    print("\nEscolha uma opção valida! Somente numero.\n")
-                    input("")
-                else:
-                    opt = int(opt)
-                    num_list.append(opt)
-                    return num_list
-        case 2:
-            if len(num_list) == 0:
-                print("lista vazia")
-                input("")
-                return num_list
-            else:
-                cont = 0
-                for itens in num_list:
-                    if itens % 2 == 0:
-                        cont += 1
-                        par_list.append(itens)
-                os.system('clear')
-                print(f"Você possui um total de {cont} numeros pares em sua lista.\n eles são: {par_list}")
-                input("")
-                return num_list
-        case 3:
-            exit()
+# """)
+#         if ui_inpt.isdigit() != True:
+#             os.system('clear')
+#             print("\nEscolha uma opção valida! Somente numero.\n")
+#             input("")
+#         else:
+#             ui_inpt = int(ui_inpt)
+#             choose(ui_inpt,num_list)
 
-def main():
-    num_list = []
-    ui_exe4(num_list)
 
-if __name__ == '__main__':
-     main()
+# def choose(inpt,num_list):
+#     par_list = []
+#     os.system('clear')
+#     match inpt:
+#         case 1:
+#             while True:
+#                 opt = input("Qual numero deseja adicionar a lista\nR: ")
+#                 if opt.isdigit() != True:
+#                     os.system('clear')
+#                     print("\nEscolha uma opção valida! Somente numero.\n")
+#                     input("")
+#                 else:
+#                     opt = int(opt)
+#                     num_list.append(opt)
+#                     return num_list
+#         case 2:
+#             if len(num_list) == 0:
+#                 print("lista vazia")
+#                 input("")
+#                 return num_list
+#             else:
+#                 cont = 0
+#                 for itens in num_list:
+#                     if itens % 2 == 0:
+#                         cont += 1
+#                         par_list.append(itens)
+#                 os.system('clear')
+#                 print(f"Você possui um total de {cont} numeros pares em sua lista.\n eles são: {par_list}")
+#                 input("")
+#                 return num_list
+#         case 3:
+#             exit()
+
+# def main():
+#     num_list = []
+#     ui_exe4(num_list)
+
+# if __name__ == '__main__':
+#      main()
 # ====================================================
 # Exercicio 5:
 # Assumindo que uma lata de tinta pinta 3m², escreva um programa
@@ -241,5 +241,18 @@ if __name__ == '__main__':
 # dizendo quantas latas de tinta seriam necessárias para pintar
 # essa parede.
 # ====================================================
-        
+def tinta_calc(lar, alt):
+    area = lar * alt
+    qtd_latas = area / 3
+    return qtd_latas
+
+lar = input("Digite a largura da parede em metros: ")
+alt = input("Digite a altura da parede em metros: ")
+
+lar = float(lar.replace(',', '.'))
+alt = float(alt.replace(',', '.'))
+
+latas = tinta_calc(lar, alt)
+print(f"São necessárias {latas:.2f} latas de tinta para pintar a parede.")
+
 # ====================================================
