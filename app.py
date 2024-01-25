@@ -102,3 +102,28 @@ print(frase.replace("a", "---"))
 # diferenca = lambda x, y: x - y
 
 # print(diferenca(7, 5))
+
+# Módulos
+
+# Modulos nativos
+import os
+os.system()
+from os import system
+system()
+
+# Modulos baixados através do pip
+from flask import Request
+import pandas
+
+# Modulos de terceiros
+import arquivo_baixado
+arquivo_baixado.funcoes()
+
+# =============================================
+
+import random
+
+random.choice()
+random.random(1, 100)
+random.randint(1, 100)
+
