@@ -27,18 +27,20 @@ def exibir_lista_pessoas(categoria, pessoas):
         elif categoria == "Idoso" and pessoa["idade"] >= 60:
             print(pessoa["nome"])
 
-def clear():
+def limpar_tela():
+    import os
+    import sys
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def painel(prompt, input):
     while True:
-        clear()
+        limpar_tela()
         try:
             opt = print(f"{prompt}")
             if opt in input:
                 return opt
             else:
-                clear()
+                limpar_tela()
                 print("Opção invalida!")
         except ValueError:
             print("Digite o numero da opção!")
