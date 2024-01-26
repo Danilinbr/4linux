@@ -1,129 +1,195 @@
-# IF - Condição
+# # IF - Condição
 
-idade = int(input("Qual é a sua idade? "))
+# idade = int(input("Qual é a sua idade? "))
 
-if idade ==+ 18:
-    print("Voce é maior de idade.")
+# if idade ==+ 18:
+#     print("Voce é maior de idade.")
 
-elif idade > 15:
-    print("Voce tem pelo menos 15 anos.")
+# elif idade > 15:
+#     print("Voce tem pelo menos 15 anos.")
 
-elif idade > 10:
-    print("Voce tem pelo menos 10 anos.")
+# elif idade > 10:
+#     print("Voce tem pelo menos 10 anos.")
 
-else:
-    print("Voce tem menos de 10 anos.")
+# else:
+#     print("Voce tem menos de 10 anos.")
 
 
-# FOR / WHILE - Repetição
+# # FOR / WHILE - Repetição
     
-for numero in range(0, 10):
-    print(numero)
+# for numero in range(0, 10):
+#     print(numero)
 
 
-resposta = "nao"
-while resposta != "sim":
-    print("Imprimindo mensagem do loop")
-    resposta = input("Quer parar o loop? [sim/nao] ")
+# resposta = "nao"
+# while resposta != "sim":
+#     print("Imprimindo mensagem do loop")
+#     resposta = input("Quer parar o loop? [sim/nao] ")
 
 
-while True:
-    resposta = input("Quer parar o loop? [sim/nao] ")
-    if resposta == "sim":
-        break
+# while True:
+#     resposta = input("Quer parar o loop? [sim/nao] ")
+#     if resposta == "sim":
+#         break
 
 
-# TUPLA / LISTA / DICIONARIO / SET - Coleções
+# # TUPLA / LISTA / DICIONARIO / SET - Coleções
     
-tupla = ("Beterraba", "Mandioca", "Batata", 50, True)
-# INDEX       0            1          2      3    4     
+# tupla = ("Beterraba", "Mandioca", "Batata", 50, True)
+# # INDEX       0            1          2      3    4     
 
-for cachorro in tupla:
-    print(f"O objeto {cachorro} é um {type(cachorro)}")
-
-
-lista = ["Beterraba", "Mandioca", "Batata", 50, True]
-# INDEX       0            1          2      3    4
-
-lista.append("Pão de batata")
-lista.remove(50)
-lista.pop(0)
-lista.insert(2, "Avião")
-
-print(lista)
+# for cachorro in tupla:
+#     print(f"O objeto {cachorro} é um {type(cachorro)}")
 
 
-# Métodos em Strings
-frase = "Testando uma nova frase"
-print(frase.replace("a", "---"))
+# lista = ["Beterraba", "Mandioca", "Batata", 50, True]
+# # INDEX       0            1          2      3    4
 
-# Dicionários - Hash Table
+# lista.append("Pão de batata")
+# lista.remove(50)
+# lista.pop(0)
+# lista.insert(2, "Avião")
 
-# chave -> valor
-
-# dicionario = {"Altura": 1.80}
-
-# dicionario["Nome"] = "Tiago"
-# dicionario["Cor"] = "Verde"
-
-#              |------ITEM----|  |----ITEM-----|
-# DICIONARIO = {'Nome': 'Tiago', 'Cor': 'Verde'}
-#               CHAVE  :  VALOR,  CHAVE: VALOR
-
-# for x, y in dicionario.items():
-#     print(f"Chave: {x}, Valor: {y}")
+# print(lista)
 
 
-# SETS
+# # Métodos em Strings
+# frase = "Testando uma nova frase"
+# print(frase.replace("a", "---"))
+
+# # Dicionários - Hash Table
+
+# # chave -> valor
+
+# # dicionario = {"Altura": 1.80}
+
+# # dicionario["Nome"] = "Tiago"
+# # dicionario["Cor"] = "Verde"
+
+# #              |------ITEM----|  |----ITEM-----|
+# # DICIONARIO = {'Nome': 'Tiago', 'Cor': 'Verde'}
+# #               CHAVE  :  VALOR,  CHAVE: VALOR
+
+# # for x, y in dicionario.items():
+# #     print(f"Chave: {x}, Valor: {y}")
+
+
+# # SETS
     
-# variavel = {10, 15, 30, "teste", 15}
-# variavel.add(20)
+# # variavel = {10, 15, 30, "teste", 15}
+# # variavel.add(20)
 
-# print(variavel)
-
-
-# FUNÇÕES
-
-# print("imprimir")
-# soma(4, 5)
-
-# def soma(x, y):
-#     resultado = x + y
-#     return resultado
+# # print(variavel)
 
 
-# print(soma(4, 7))
-# print(soma(10, 23))
-# print(soma(70, 1))
+# # FUNÇÕES
+
+# # print("imprimir")
+# # soma(4, 5)
+
+# # def soma(x, y):
+# #     resultado = x + y
+# #     return resultado
 
 
-# Funções LAMBDA / Funções Anonimas
+# # print(soma(4, 7))
+# # print(soma(10, 23))
+# # print(soma(70, 1))
 
-# diferenca = lambda x, y: x - y
 
-# print(diferenca(7, 5))
+# # Funções LAMBDA / Funções Anonimas
 
-# Módulos
+# # diferenca = lambda x, y: x - y
 
-# Modulos nativos
-import os
-os.system()
-from os import system
-system()
+# # print(diferenca(7, 5))
 
-# Modulos baixados através do pip
-from flask import Request
-import pandas
+# # Módulos
 
-# Modulos de terceiros
-import arquivo_baixado
-arquivo_baixado.funcoes()
+# # Modulos nativos
+# import os
+# os.system()
+# from os import system
+# system()
+
+# # Modulos baixados através do pip
+# from flask import Request
+# import pandas
+
+# # Modulos de terceiros
+# import arquivo_baixado
+# arquivo_baixado.funcoes()
+
+# # =============================================
+
+# import random
+
+# random.choice()
+# random.random(1, 100)
+# random.randint(1, 100)
 
 # =============================================
+# Manipulação de arquivos
 
-import random
+# r -> READ   -> Leitura
+# w -> WRITE  -> Escrita (SOBRESCREVE)
+# a -> APPEND -> Anexar
+# + -> Leitura e escrita
 
-random.choice()
-random.random(1, 100)
-random.randint(1, 100)
+# arquivo = open("texto.txt", "a")
 
+# conteudo = "\nQuarta linha do arquivo de texto"
+
+# arquivo.write(conteudo)
+
+# arquivo.close()
+
+#====================================================
+# arquivo = open("texto.txt", "r")
+
+# conteudo = arquivo.readlines()
+# for linha in conteudo:
+#     print(linha, end="")
+
+# arquivo.close()
+
+# Arquivos .csv
+
+import csv
+
+# arquivo = open("registro.csv",'a')
+
+# with open("/mnt/e/My_Git/4Linux_Git/4linux/registro.csv",'r') as arquivo:
+#     conteudo = []
+#     reader = csv.reader(arquivo, delimiter=';')
+#     for lines in reader:
+#         conteudo.append(lines)
+#     for linha in conteudo:
+#         print(linha)
+
+# with open("/mnt/e/My_Git/4Linux_Git/4linux/registro.csv",'w') as arquivo:
+#     conteudo = []
+#     writer = csv.writer(arquivo, delimiter=';')
+#     for lines in writer:
+#         conteudo.append(lines)
+#     for linha in conteudo:
+#         print(linha)
+
+with open("registro.csv", "r") as arquivo:
+    conteudo = csv.reader(arquivo, delimiter=";")
+    # cabeçalho = next(conteudo)
+    # primeira_linha = next(conteudo)
+    # segunda_linha = next(conteudo)
+    # terceira_linha = next(conteudo)
+
+    lista_conteudo = []
+
+    for linha in conteudo:
+        lista_conteudo.append(linha)
+
+    for linha in lista_conteudo:
+        print(linha)
+
+with open("registro.csv", "a+", newline="") as arquivo:
+    escrita = csv.writer(arquivo, delimiter=";")
+
+    escrita.writerow(["444444444", "Tiago P", 27, "M", "Brasileiro"])
