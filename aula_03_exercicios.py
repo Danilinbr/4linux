@@ -1,5 +1,6 @@
 # # Exercícios - Aula 03
 import os as os
+import pandas
 # ## Exercício 1:
 # Escreva uma função que receba um nome e que tenha como saída uma saudação. O argumento da função deverá ser o nome e a saída deverá ser como a seguir:
 

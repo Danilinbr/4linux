@@ -173,6 +173,7 @@ def main():
     while True:
         limpar_tela()
         display_inicial()
+
         opt = painel("Digite a opção desejada: ", [1, 2, 3, 4])
 
         match opt:
@@ -193,6 +194,7 @@ def main():
                 print("Terminando o programa de cadastro. Obrigado!")
                 time.sleep(2)
                 sys.exit()
+                
         limpar_tela()
 
 if __name__ == "__main__":
