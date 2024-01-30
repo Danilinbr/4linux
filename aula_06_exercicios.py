@@ -107,7 +107,7 @@ class FilaBanco:
     def dar_prioridade(self, idade):
         if idade >= 65:
             self.fila.insert(0, idade)
-            print(f"Pessoa com idade {idade} recebeu prioridade e foi colocada no início da fila.")
+            print(f"Devido a idade de {idade} a pessoa recebeu prioridade e foi colocada no início da fila.")
         else:
             print("A pessoa não tem idade suficiente para prioridade.")
 
