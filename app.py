@@ -193,3 +193,88 @@ with open("registro.csv", "a+", newline="") as arquivo:
     escrita = csv.writer(arquivo, delimiter=";")
 
     escrita.writerow(["444444444", "Tiago P", 27, "M", "Brasileiro"])
+# AULA 06 -------------------------------------------
+# Class / Classes
+# Crie uma classe pra simular uma pilha, onde itens só podem ser removidos do topo.
+
+class Pilha:
+
+    def __init__(self):
+        self.pilha = []
+        self.__topo = 0
+
+    def empilhar(self, item):
+        self.pilha.append(item)
+        self.__topo += 1
+
+    def desempilhar(self):
+        if self.__topo > 0:
+            ultimo_item = self.pilha[-1]
+            self.pilha.remove(ultimo_item)
+            self.__topo -= 1
+            return "Item removido"
+        else:
+            return "Nenhum item empilhado"
+        
+    def checar(self):
+        return self.pilha
+        
+balcao = Pilha()
+print(balcao.pilha)
+
+balcao.empilhar("Prato de vidro verde")
+balcao.empilhar("Prato de porcelana azul")
+balcao.empilhar("Prato de metal")
+balcao.empilhar("Prato de madeira")
+
+balcao.desempilhar()
+balcao.desempilhar()
+
+# Encapsulamento
+
+print(balcao.checar())
+
+# Herança
+
+class Funcionario:
+
+    def __init__(self):
+        self.__nome = ""
+        self.__idade = 0
+        self.__salario = 0
+
+
+
+class Gerentes(Funcionario):
+
+    def __init__(self):
+        super().init__()
+        self.__bonus = "25%"
+
+
+# Polimorfismo
+class Cliente:
+
+    def __init__(self):
+        self.carrinho = []
+        self.cpf = ''
+        self.total = 0
+
+    def adicionar_item(self, item):
+        self.carrinho.append(item)
+
+    def caixa(self):
+        for item in self.carrinho:
+            self.total += 1.99
+        return self.total
+    
+class ClienteVIP(Cliente):
+
+    def __init__(self):
+        super().__init__()
+        self.desconto = 0.95
+
+    def caixa(self):
+        for item in self.carrinho:
+            self.total += 1.99
+        return self.total * self.desconto
