@@ -193,7 +193,7 @@ with open("registro.csv", "a+", newline="") as arquivo:
     escrita = csv.writer(arquivo, delimiter=";")
 
     escrita.writerow(["444444444", "Tiago P", 27, "M", "Brasileiro"])
-# AULA 06 -------------------------------------------
+# AULA 06 ----------------------------------------------------------------------------------------------
 # Class / Classes
 # Crie uma classe pra simular uma pilha, onde itens só podem ser removidos do topo.
 
@@ -278,7 +278,7 @@ class ClienteVIP(Cliente):
         for item in self.carrinho:
             self.total += 1.99
         return self.total * self.desconto
-# AULA 07 - 
+# AULA 07 ----------------------------------------------------------------------------------------------
 # try:      Tenta executar um trecho de código.
 # except:   Toma uma ação de acordo com a exceção criada no try.
 # else:     Executa um código caso o try seja bem sucedido.
@@ -301,3 +301,65 @@ else:
 
 finally:
     print("Esta mensagem sempre será executada!")
+
+# AULA 08 - DBs ---------------------------------------------------------------------------------------
+    # Bancos de Dados - Databases - DBs
+
+import sqlite3 # Modulo utilizado pra criação e gerencia de bancos SQL no python.
+
+conexao = sqlite3.connect("estoque.db")  # Estabelece uma conexão ou cria um novo arquivo se ele não existir.
+cursor = conexao.cursor() # Cria uma ferramenta pra editarmos o banco de dados.
+
+# SQL armazena suas informações em tabelas.
+
+# Comando pra criar uma tabela chamada "nomes":
+comando_cria_tabela = """
+CREATE TABLE nomes (
+id integer primary key autoincrement,
+nome text,
+idade integer,
+sexo)
+"""
+
+try:
+    cursor.execute(comando_cria_tabela) #Executa o comando no banco de dados pra criar a tabela.
+except sqlite3.OperationalError:
+    pass
+
+letra = "M"
+
+#Como adicionar itens em uma tabela em um banco de dados sql:
+comando_adiciona_item = f"""
+INSERT INTO nomes (nome, idade, sexo)
+values ("Tiago", 27, "{letra}")
+"""
+
+cursor.execute(comando_adiciona_item)
+conexao.commit()
+
+#Como remover um item de uma tabela em um banco de dados sql:
+comando_remove_item = """
+DELETE FROM nomes WHERE id = 2
+"""
+
+cursor.execute(comando_remove_item)
+conexao.commit()
+
+#Como atualizar um campo de um item dentro de uma tabela em um banco sql:
+comando_atualiza_valor = """
+UPDATE nomes
+SET nome = "Caio"
+WHERE id = 3
+"""
+
+cursor.execute(comando_atualiza_valor)
+conexao.commit()
+
+#Como checar o conteudo de dentro de uma tabela em um banco de dados sql:
+comando_checa_tabela = """
+SELECT * FROM nomes
+"""
+
+cursor.execute(comando_checa_tabela)
+conteudo = cursor.fetchall()
+print(conteudo)
