@@ -278,3 +278,26 @@ class ClienteVIP(Cliente):
         for item in self.carrinho:
             self.total += 1.99
         return self.total * self.desconto
+# AULA 07 - 
+# try:      Tenta executar um trecho de código.
+# except:   Toma uma ação de acordo com a exceção criada no try.
+# else:     Executa um código caso o try seja bem sucedido.
+# finally:  Executa um código em todo caso.
+
+try:
+    teste = int("Tiago")
+
+except ValueError:
+    print("Deu um erro do tipo ValueError, não dá pra converter str em int!")
+
+except TypeError:
+    pass
+
+except ImportError:
+    pass
+
+else:
+    print("O try foi bem sucedido")
+
+finally:
+    print("Esta mensagem sempre será executada!")
