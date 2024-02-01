@@ -278,7 +278,7 @@ class ClienteVIP(Cliente):
         for item in self.carrinho:
             self.total += 1.99
         return self.total * self.desconto
-# AULA 07 ----------------------------------------------------------------------------------------------
+# AULA 06 ----------------------------------------------------------------------------------------------
 # try:      Tenta executar um trecho de código.
 # except:   Toma uma ação de acordo com a exceção criada no try.
 # else:     Executa um código caso o try seja bem sucedido.
@@ -302,7 +302,7 @@ else:
 finally:
     print("Esta mensagem sempre será executada!")
 
-# AULA 08 - DBs ---------------------------------------------------------------------------------------
+# AULA 07 - DBs ---------------------------------------------------------------------------------------
     # Bancos de Dados - Databases - DBs
 
 import sqlite3 # Modulo utilizado pra criação e gerencia de bancos SQL no python.
@@ -363,7 +363,7 @@ SELECT * FROM nomes
 cursor.execute(comando_checa_tabela)
 conteudo = cursor.fetchall()
 print(conteudo)
-#AULA 09 --------------------------------------------------------------------
+#AULA 08 --------------------------------------------------------------------
 # =============================================================================================
 # List Comprehension
 
@@ -464,7 +464,7 @@ except NaoEstaNaLista as erro:
     print(erro)
 
 
-#AULA 10 ------------------
+#AULA 09 ------------------
     
 # UnitTest / vEnv
 
