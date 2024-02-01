@@ -363,3 +363,102 @@ SELECT * FROM nomes
 cursor.execute(comando_checa_tabela)
 conteudo = cursor.fetchall()
 print(conteudo)
+#AULA 09 --------------------------------------------------------------------
+# =============================================================================================
+# List Comprehension
+
+lista = []
+for numero in range(5, 10):
+    lista.append(numero * numero)
+print(lista)
+
+lista = [numero * numero for numero in range(5, 10)]
+print(lista)
+
+# Dict Comprehension
+
+dicionario = {}
+for numero in range(4, 8):
+    dicionario[numero] = numero * numero
+print(dicionario)
+
+dicionario = {valor: valor * valor for valor in range(4, 8)}
+print(dicionario)
+
+# =============================================================================================
+# Map, Reduce e Filter
+
+x = lambda n1: n1**2
+y = lambda n1, n2: n1+n2
+z = lambda n1: n1 > 30
+lista = [2, 3, 4, 5, 6, 24, 52, 66, 161, 70, 11]
+
+# MAP
+print(list(map(x, lista)))
+
+# Reduce
+from functools import reduce
+print(reduce(y, lista))
+
+# Filter
+print(list(filter(z, lista)))
+
+# ==============================================================================================
+# Generators
+
+def sequencia(numero):
+    lista = []
+    for item in range(numero):
+        lista.append(item)
+    return lista
+
+print(sequencia(10))
+
+
+def gen_sequencia(numero):
+    for item in range(numero):
+        yield item
+
+numero_generator = gen_sequencia(100)
+
+print(next(numero_generator))
+print(next(numero_generator))
+print(next(numero_generator))
+print(next(numero_generator))
+print(next(numero_generator))
+
+print("=" * 40)
+
+for x in numero_generator:
+    if x % 2 == 0:
+        print(x)
+
+# Generator Comprehension:
+gen_numeros = (item for item in range(100))
+
+print(next(gen_numeros))
+print(next(gen_numeros))
+print(next(gen_numeros))
+
+# ====================================================================================
+# Exceptions personalizadas
+
+class NaoEstaNaLista(Exception):
+
+    def __init__(self, nome):
+        self.message = nome
+
+    def __str__(self):
+        print(f"NaoEstaNaLista : nome recebido {self.message}")
+
+
+lista = ["Caio", "Kaique", "Amanda"]
+
+pessoa = input("Qual o seu nome? ")
+
+try:
+    if pessoa not in lista:
+        raise NaoEstaNaLista(pessoa)
+
+except NaoEstaNaLista as erro:
+    print(erro)
