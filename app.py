@@ -462,3 +462,32 @@ try:
 
 except NaoEstaNaLista as erro:
     print(erro)
+
+
+#AULA 10 ------------------
+    
+# UnitTest / vEnv
+
+import unittest
+
+class TestandoStrings(unittest.TestCase):
+    def teste_igual(self):
+        self.assertEqual("teste".upper(), "TESTE")
+
+    def teste_maiusculo(self):
+        self.assertTrue("TIAGO".isupper())
+        self.assertFalse("Tiago".isupper())
+
+    def teste_repetido(self):
+        string = "Testando string"
+        self.assertEqual(string.split(), ["Testando", "string"])
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+#    Virtual Environment
+#    python -m venv .\nova-pasta
+#    pip install flask
+
