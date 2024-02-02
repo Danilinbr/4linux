@@ -1,22 +1,26 @@
 import sqlite3
 
-conn = sqlite3.connect('./lib/clientes_db.db')
-cursor = conn.cursor()
+class DBMain:
+    def __init__(self, db_name='./lib/clientes_db.db'):
+        self.conn = sqlite3.connect(db_name)
+        self.cursor = self.conn.cursor()
 
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS clientes (
-        nome TEXT PRIMARY KEY,
-        saldo REAL DEFAULT 0
-    )
-''')
+    def criar_tabelas(self):
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS clientes (
+                nome TEXT PRIMARY KEY,
+                idade INTEGER,
+                saldo REAL DEFAULT 0
+            )
+        ''')
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS usuarios (
+                nome TEXT PRIMARY KEY,
+                usuario TEXT,
+                senha TEXT NOT NULL
+            )
+        ''')
+        self.conn.commit()
 
-cursor.execute('''
-    CREATE TABLE IF NOT EXISTS user_pass (
-        nome TEXT PRIMARY KEY,
-        senha TEXT NOT NULL
-    )
-''')
-
-conn.commit()
-
-#===============================================================#
+    def fechar_conexao(self):
+        self.conn.close()
